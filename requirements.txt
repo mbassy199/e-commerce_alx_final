@@ -1,0 +1,4 @@
+Django==3.2.7
+python-decouple==3.5
+requests==2.26.0
+Pillow==8.4.0
