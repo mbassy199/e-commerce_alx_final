@@ -26,11 +26,7 @@ This is an e-commerce website built with **Django** and integrated with **PayPal
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
 - **Backend**: Django
 - **Database**: SQLite (used for development)
-<<<<<<< HEAD
-- **Payment Gateway**: PayPal API
-=======
 - **Payment Gateway**: PayPal APIs
->>>>>>> 5f7a33504efe3f2fc62782e8b85f0f1179d777c9
 
 ---
 
