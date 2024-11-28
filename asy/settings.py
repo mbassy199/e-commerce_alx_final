@@ -28,6 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']  # Add your domain here for production
 
+COMPRESS_ROOT = BASE_DIR / 'static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,6 +47,7 @@ INSTALLED_APPS = [
     'store',
     'carts',
     'orders',
+    'compressor',
 ]
 
 MIDDLEWARE = [

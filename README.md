@@ -119,3 +119,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - The e-commerce website was built with **Django** and integrates with **PayPal API** for payments.
 - **Bootstrap** is used for styling and responsive design.
+
+
+## Compile tailwind.css 
+`
+ npx tailwindcss -i ./static/css/index.css -o ./static/css/output.css --watch
+`
