@@ -26,11 +26,7 @@ This is an e-commerce website built with **Django** and integrated with **PayPal
 - **Frontend**: HTML, CSS, JavaScript, Bootstrap
 - **Backend**: Django
 - **Database**: SQLite (used for development)
-<<<<<<< HEAD
-- **Payment Gateway**: PayPal API
-=======
 - **Payment Gateway**: PayPal APIs
->>>>>>> 5f7a33504efe3f2fc62782e8b85f0f1179d777c9
 
 ---
 
@@ -123,3 +119,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - The e-commerce website was built with **Django** and integrates with **PayPal API** for payments.
 - **Bootstrap** is used for styling and responsive design.
+
+
+## Compile tailwind.css 
+`
+ npx tailwindcss -i ./static/css/index.css -o ./static/css/output.css --watch
+`
