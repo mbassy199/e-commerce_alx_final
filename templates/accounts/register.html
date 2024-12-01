@@ -93,7 +93,7 @@
 <div class="min-h-screen w-full bg-gray-50">
     <section class="py-4 md:py-8 bg-gray-50 mt-10">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-xl xl:p-0">
+            <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-xl xl:p-0">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-700 md:text-2xl text-center">
                         Create an Account
@@ -115,7 +115,7 @@
                                             First Name
                                         </label>
                                         <input type="text" name="first_name" id="first_name" placeholder="Emmanuel"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             required="">
                                         {% if form.first_name.errors %}
                                         <p class="text-xs text-red-500"> {{ form.first_name.errors }}</p>
@@ -129,7 +129,7 @@
                                             Last Name
                                         </label>
                                         <input type="text" name="last_name" id="last_name" placeholder="Last name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             required="">
                                         {% if form.last_name.errors %}
                                         <p class="text-xs text-red-500"> {{ form.last_name.errors }}</p>
@@ -143,7 +143,7 @@
                                             Email Address
                                         </label>
                                         <input type="email" name="email" id="email" placeholder="Email Address"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             required="">
                                         {% if form.email.errors %}
                                         <p class="text-xs text-red-500"> {{ form.email.errors }}</p>
@@ -158,7 +158,7 @@
                                         </label>
                                         <input type="text" name="phone_number" id="phone_number"
                                             placeholder="0545000000"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             required="">
                                         {% if form.phone_number.errors %}
                                         <p class="text-xs text-red-500">{{ form.phone_number.errors }}</p>
@@ -181,7 +181,7 @@
                                             Password
                                         </label>
                                         <input type="password" name="password" id="password" placeholder="Password"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             required="">
                                         {% if form.password.errors %}
                                         <p class="text-xs text-red-500">{{ form.password.errors }}</p>
@@ -196,7 +196,7 @@
                                         </label>
                                         <input type="password" name="confirm_password" id="confirm_password"
                                             placeholder="Confirm Password"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             required="">
                                         {% if form.confirm_password.errors %}
                                         <p class="text-xs text-red-500">{{ form.confirm_password.errors }}</p>
@@ -208,7 +208,7 @@
 
                         <div class="space-y-2">
                             <button type="submit"
-                                class="text-white bg-orange-600 py-1.5 px-4 rounded  w-full uppercase">
+                                class="text-white bg-orange-500 py-1.5 px-4 rounded  w-full uppercase">
                                 Sign up
                             </button>
                             {% if form.non_field_errors %}
@@ -219,7 +219,7 @@
                             <p class="text-sm text-center text-gray-500 dark:text-gray-400">
                                 Already have an account?
                                 <a href="{% url 'login' %}"
-                                    class="font-medium text-orange-600 hover:underline dark:text-orange-500">
+                                    class="font-medium text-orange-500 hover:underline dark:text-orange-500">
                                     Login Here
                                 </a>
                             </p>
