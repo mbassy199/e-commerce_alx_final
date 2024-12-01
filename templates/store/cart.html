@@ -61,138 +61,45 @@
             </div>
         </div>
         {% else %}
-        <!-- <div class="row">
-            <aside class="col-lg-9">
-                <div class="card">
-                    <table class="table table-borderless table-shopping-cart">
-                        <thead class="text-muted">
-                            <tr class="small text-uppercase">
-                                <th scope="col">Product</th>
-                                <th scope="col" width="120">Quantity</th>
-                                <th scope="col" width="120">Price</th>
-                                <th scope="col" class="text-right" width="200"> </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {% for cart_item in cart_items %}
-                            <tr>
-                                <td>
-                                    <figure class="itemside align-items-center">
-                                        <div class="aside"><img src="{{ cart_item.product.images.url }}" class="img-sm">
-                                        </div>
-                                        <figcaption class="info">
-                                            <a href="{{ cart_item.product.get_url }}" class="title text-dark">{{
-                                                cart_item.product.product_name }}</a>
-                                            <p class="text-muted small">Color: 25 Mpx <br> Size: Canon</p>
-                                        </figcaption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <div class="col">
-                                        <div class="input-group input-spinner">
-                                            <div class="input-group-prepend">
-                                                <form action="{% url 'remove_cart' cart_item.product.id cart_item.id %}"
-                                                    method="POST" style="display:inline;">
-                                                    {% csrf_token %}
-                                                    <button class="btn btn-light" type="submit">
-                                                        <i class="fa fa-minus"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-
-                                            <input type="text" class="form-control" value="{{ cart_item.quantity }}"
-                                                readonly>
-                                            <div class="input-group-append">
-                                                <form action="{% url 'add_cart' cart_item.product.id %}" method="POST"
-                                                    style="display:inline;">
-                                                    {% csrf_token %}
-                                                    <button class="btn btn-light" type="submit">
-                                                        <i class="fa fa-plus"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="price-wrap">
-                                        <var class="price">{{ cart_item.sub_total }}</var>
-                                        <small class="text-muted"> $ {{ cart_item.product.price }} </small>
-                                    </div>
-                                </td>
-                                <td class="text-right">
-                                    <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}"
-                                        class="btn btn-danger">Remove</a>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </aside>
-
-            <aside class="col-lg-3">
-                <div class="card">
-                    <div class="card-body">
-                        <dl class="dlist-align">
-                            <dt>Total price:</dt>
-                            <dd class="text-right">{{ total }}</dd>
-                        </dl>
-                        <dl class="dlist-align">
-                            <dt>Tax:</dt>
-                            <dd class="text-right">{{ tax }}</dd>
-                        </dl>
-                        <dl class="dlist-align">
-                            <dt> Grand Total:</dt>
-                            <dd class="text-right text-dark b"><strong>{{ grand_total }}</strong></dd>
-                        </dl>
-                        <hr>
-                        <p class="text-center mb-3">
-                            <img src="{% static 'images/misc/payments.png' %}" height="26">
-                        </p>
-                        <a href="{% url 'checkout' %}" class="btn btn-primary btn-block"> Checkout </a>
-                        <a href="{% url 'store' %}" class="btn btn-light btn-block">Continue Shopping</a>
-                    </div>
-                </div>
-            </aside>
-        </div> -->
-
         <div class="flex min-h-screen px-5 py-10 bg-gray-50">
-            <section class="flex px-5 mt-10 bg-white py-8 antialiased rounded-lg w-full md:py-10">
-                <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+            <section class="grid grid-cols-12 gap-4 mt-10 bg-white py-8 px-5 antialiased rounded-lg w-full">
+                <div class="col-span-12 ltablet:col-span-7 lg:col-span-8">
                     <h2 class="text-lg font-semibold text-gray-800">Shopping Cart</h2>
 
                     <div class="flex mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
-                        <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
+                        <div class="mx-auto w-full flex-none">
                             <div class="space-y-6">
                                 {% for cart_item in cart_items %}
                                 <div class="border rounded-md bg-white p-4">
                                     <div
-                                        class="space-y-4 flex md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
-                                        <div class="shrink-0 md:order-1 w-24 h-24 rounded-lg overflow-hidden">
+                                        class="space-y-4 flex flex-col md:flex-row md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+                                        <div class="shrink-0 md:order-1 md:w-24 md:h-24 rounded-lg overflow-hidden">
                                             <img class="object-cover" src="{{ cart_item.product.images.url }}"
                                                 alt="imac image" />
                                         </div>
                                         <div class="flex items-center justify-between md:order-3 md:justify-end">
                                             <div class="flex items-center">
-                                                <button type="button" id="decrement-button"
-                                                    data-input-counter-decrement="counter-input"
-                                                    class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
-                                                    <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white"
-                                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                        fill="none" viewBox="0 0 18 2">
-                                                        <path stroke="currentColor" stroke-linecap="round"
-                                                            stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
-                                                    </svg>
-                                                </button>
+                                                <form action="{% url 'remove_cart' cart_item.product.id cart_item.id %}"
+                                                    method="POST" style="display:inline;">
+                                                    {% csrf_token %}
+                                                    <button type="submit"
+                                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
+                                                        <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white"
+                                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none" viewBox="0 0 18 2">
+                                                            <path stroke="currentColor" stroke-linecap="round"
+                                                                stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
+                                                        </svg>
+                                                    </button>
+                                                </form>
                                                 <input type="text"
                                                     class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 dark:text-white"
                                                     placeholder="" value="{{ cart_item.quantity }}" required />
-                                                <div>
+                                                <div class="input-group-append">
                                                     <form action="{% url 'add_cart' cart_item.product.id %}"
-                                                        method="POST">
-                                                        <button type="button"
+                                                        method="POST" style="display:inline;">
+                                                        {% csrf_token %}
+                                                        <button type="submit"
                                                             class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
                                                             <svg class="h-2.5 w-2.5 text-gray-900 dark:text-white"
                                                                 aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -206,21 +113,27 @@
                                                 </div>
                                             </div>
                                             <div class="text-end md:order-4 md:w-32">
-                                                <p class="text-base font-bold text-gray-900 dark:text-white">$1,499</p>
+                                                <p class="text-base font-bold text-gray-900 dark:text-white">
+                                                    GHC {{ cart_item.sub_total }}</p>
                                             </div>
                                         </div>
 
                                         <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
                                             <div>
-                                                <span class="text-base font-semibold text-gray-900 hover:underline">
-                                                    {{ cart_item.product.product_name }}
-                                                </span>
-                                                <p>
-                                                    {{ cart_item.product.description }}
+                                                <a href="{{ cart_item.product.get_url }}"
+                                                    class="text-base font-semibold text-gray-900 hover:underline">
+                                                    <span>{{ cart_item.product.product_name }}</span>
+                                                </a>
+                                                <p>{{ cart_item.product.description }}</p>
+                                                <p class="text-gray-600 font-semibold ">
+                                                    <span>Price:</span>
+                                                    <span class="text-orange-500">
+                                                        GHC {{ cart_item.product.price}}
+                                                    </span>
                                                 </p>
                                             </div>
                                             <div class="flex items-center gap-4">
-                                                <button type="button"
+                                                <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}"
                                                     class="inline-flex items-center text-sm font-medium text-red-600 hover:underline dark:text-red-500">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -233,7 +146,7 @@
                                                         <line x1="14" x2="14" y1="11" y2="17" />
                                                     </svg>
                                                     <span class="ml-1">Remove</span>
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -244,7 +157,7 @@
                     </div>
                 </div>
 
-                <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
+                <div class="col-span-12 md:col-span-5 lg:col-span-4 space-y-6 lg:mt-0">
                     <div
                         class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 sm:p-6">
                         <p class="text-xl font-semibold text-gray-900 dark:text-white">Order summary</p>
@@ -252,18 +165,12 @@
                         <div class="space-y-4">
                             <div class="space-y-2">
                                 <dl class="flex items-center justify-between gap-4">
-                                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Grand totla
+                                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Total
                                     </dt>
                                     <dd class="text-base font-medium text-gray-900 dark:text-white">
-                                        GHC {{ grand_total}}
+                                        GHC {{ total}}
                                     </dd>
                                 </dl>
-
-                                <dl class="flex items-center justify-between gap-4">
-                                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Savings</dt>
-                                    <dd class="text-base font-medium text-green-600">-$299.00</dd>
-                                </dl>
-
                                 <dl class="flex items-center justify-between gap-4">
                                     <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Tax</dt>
                                     <dd class="text-base font-medium text-gray-900 dark:text-white">GHC {{ tax }}</dd>
@@ -272,14 +179,15 @@
 
                             <dl
                                 class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
-                                <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-                                <dd class="text-base font-bold text-gray-900 dark:text-white">GHC {{ total }}</dd>
+                                <dt class="text-base font-bold text-gray-900 dark:text-white">Grand Total</dt>
+                                <dd class="text-base font-bold text-gray-900 dark:text-white">GHC {{ grand_total }}</dd>
                             </dl>
                         </div>
 
-                        <a href="#"
+                        <a href="{% url 'checkout' %}"
                             class="flex w-full items-center justify-center rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-orange-600 focus:outline-none focus:ring-4">Proceed
-                            to Checkout</a>
+                            to Checkout
+                        </a>
 
                         <div class="flex items-center justify-center gap-2">
                             <span class="text-sm font-normal text-gray-500 dark:text-gray-400"> or </span>
