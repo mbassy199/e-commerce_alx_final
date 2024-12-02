@@ -1,159 +1,197 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-<!-- ========================= SECTION PAGETOP ========================= -->
-<section class="section-pagetop bg">
-    <style>
-        .section-pagetop {
-            background-color: #f4f4f4; /* Light background color for the section */
-            padding: 40px 0; /* Padding around the section */
-            text-align: center; /* Center-align text within the section */
-        }
 
-        .title-page {
-            font-size: 36px; /* Font size for the title */
-            font-weight: bold; /* Bold font weight */
-            color: #FF5733; /* Title text color */
-            text-transform: uppercase; /* Uppercase text */
-            letter-spacing: 2px; /* Letter spacing */
-            margin: 20px 0; /* Vertical margin */
-            padding: 10px; /* Padding around the title */
-            background: linear-gradient(to right, #FFC300, #FF5733); /* Background gradient */
-            -webkit-background-clip: text; /* Clip background to text */
-            -webkit-text-fill-color: transparent; /* Fill text with transparent color */
-            border-bottom: 2px solid #FF5733; /* Bottom border */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
-        }
-    </style>
+<div class="font-[sans-serif] bg-gray-100 py-20 px-10">
+    <div class="p-4 mx-auto lg:max-w-7xl sm:max-w-full">
+        <h2 class="text-4xl font-semibold text-gray-800 mb-12">Products</h2>
 
-    <div class="container">
-        {% if 'search' in request.path %}
-        <h2 class="title-page">AUTHENTIC STREET YARD</h2>   
-        {% else %}
-        <h2 class="title-page">Our Store</h2>
-        {% endif %}
-    </div> <!-- container //  -->
-</section>
-<!-- ========================= SECTION INTRO END// ========================= -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6">
+            <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+                <div
+                    class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                            data-original="#000000"></path>
+                    </svg>
+                </div>
 
-<!-- ========================= SECTION CONTENT ========================= -->
-<section class="section-content padding-y">
-    <div class="container">
-        <div class="row">
-            <aside class="col-md-3">
-                <div class="card">
-                    <article class="filter-group">
-                        <header class="card-header">
-                            <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
-                                <i class="icon-control fa fa-chevron-down"></i>
-                                <h6 class="title">Categories</h6>
-                            </a>
-                        </header>
-                        <div class="filter-content collapse show" id="collapse_1">
-                            <div class="card-body">
-                                <ul class="list-menu">
-                                    {% for category in links %}
-                                        <li><a href="{{ category.get_url }}">{{ category.category_name }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </div> <!-- card-body.// -->
-                        </div>
-                    </article> <!-- filter-group  .// -->
-                    
-                    <article class="filter-group">
-                        
-                        <div class="filter-content collapse show" id="collapse_3">
-                            <div class="card-body">
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>Min</label>
-                                        <select class="mr-2 form-control">
-                                            <option value="0">$0</option>
-                                            <option value="50">$50</option>
-                                            <option value="100">$100</option>
-                                            <option value="150">$150</option>
-                                            <option value="200">$200</option>
-                                            <option value="500">$500</option>
-                                            <option value="1000">$1000</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group text-right col-md-6">
-                                        <label>Max</label>
-                                        <select class="mr-2 form-control">
-                                            <option value="50">$50</option>
-                                            <option value="100">$100</option>
-                                            <option value="150">$150</option>
-                                            <option value="200">$200</option>
-                                            <option value="500">$500</option>
-                                            <option value="1000">$1000</option>
-                                            <option value="2000">$2000+</option>
-                                        </select>
-                                    </div>
-                                </div> <!-- form-row.// -->
-                                <button class="btn btn-block btn-primary">Apply</button>
-                            </div><!-- card-body.// -->
-                        </div>
-                    </article> <!-- filter-group .// -->
-                </div> <!-- card.// -->
-            </aside> <!-- col.// -->
-            <main class="col-md-9">
-                <header class="border-bottom mb-4 pb-3">
-                    <div class="form-inline">
-                        <span class="mr-md-auto"><b>{{ product_count }}</b> items found </span>
-                    </div>
-                </header><!-- sect-heading -->
+                <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src="https://readymadeui.com/images/product9.webp" alt="Product 1"
+                        class="h-full w-full object-contain" />
+                </div>
 
-                <div class="row">
-                    {% for product in products %}
-                    <div class="col-md-4">
-                        <figure class="card card-product-grid">
-                            <div class="img-wrap"> 
-                                <a href="{{ product.get_url }}"><img src="{{ product.images.url }}"></a>
-                            </div> <!-- img-wrap.// -->
-                            <figcaption class="info-wrap">
-                                <div class="fix-height">
-                                    <a href="{% url 'product_detail' category_slug=product.category.slug product_slug=product.slug %}" class="title">{{ product.product_name }}</a>
-                                    <div class="price-wrap mt-2">
-                                        <span class="price">${{ product.price }}</span>
-                                    </div> <!-- price-wrap.// -->
-                                </div>
-                                <a href="{{ product.get_url }}" class="btn btn-block btn-primary">view Detail</a>
-                            </figcaption>
-                        </figure>
-                    </div> <!-- col.// -->
-                    {% endfor %}
-                </div> <!-- row end.// -->
+                <div>
+                    <h3 class="text-lg font-extrabold text-gray-800">Sole Elegance</h3>
+                    <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h4 class="text-lg text-gray-800 font-bold mt-4">$10</h4>
+                </div>
+            </div>
 
-                <nav class="mt-4" aria-label="Page navigation sample">
-                    {% if products.has_other_pages %}
-                        <ul class="pagination">
-                            {% if products.has_previous %}
-                                <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a></li>
-                            {% else %}
-                                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                            {% endif %}
-                            
-                            {% for page_num in products.paginator.page_range %}
-                                {% if products.number == page_num %}
-                                    <li class="page-item active"><a class="page-link" href="#">{{ page_num }}</a></li>
-                                {% else %}
-                                    <li class="page-item"><a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a></li>
-                                {% endif %}
-                            {% endfor %}
-                            
-                            {% if products.has_next %}
-                                <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Next</a></li>
-                            {% else %}
-                                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
-                            {% endif %}
-                        </ul>
-                    {% endif %}
-                </nav>
-            </main> <!-- col.// -->
+            <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+                <div
+                    class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                            data-original="#000000"></path>
+                    </svg>
+                </div>
+
+                <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src="https://readymadeui.com/images/product10.webp" alt="Product 2"
+                        class="h-full w-full object-contain" />
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-extrabold text-gray-800">Urban Sneakers</h3>
+                    <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h4 class="text-lg text-gray-800 font-bold mt-4">$12</h4>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+                <div
+                    class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                            data-original="#000000"></path>
+                    </svg>
+                </div>
+
+                <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src="https://readymadeui.com/images/product11.webp" alt="Product 3"
+                        class="h-full w-full object-contain" />
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-extrabold text-gray-800">Velvet Boots</h3>
+                    <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h4 class="text-lg text-gray-800 font-bold mt-4">$14</h4>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+                <div
+                    class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                            data-original="#000000"></path>
+                    </svg>
+                </div>
+
+                <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src="https://readymadeui.com/images/product12.webp" alt="Product 3"
+                        class="h-full w-full object-contain" />
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-extrabold text-gray-800">Summit Hiking</h3>
+                    <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h4 class="text-lg text-gray-800 font-bold mt-4">$12</h4>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+                <div
+                    class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                            data-original="#000000"></path>
+                    </svg>
+                </div>
+
+                <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src="https://readymadeui.com/images/product13.webp" alt="Product 3"
+                        class="h-full w-full object-contain" />
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-extrabold text-gray-800">Zenith Glow</h3>
+                    <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h4 class="text-lg text-gray-800 font-bold mt-4">$15</h4>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+                <div
+                    class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                            data-original="#000000"></path>
+                    </svg>
+                </div>
+
+                <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src="https://readymadeui.com/images/product14.webp" alt="Product 3"
+                        class="h-full w-full object-contain" />
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-extrabold text-gray-800">Echo Elegance</h3>
+                    <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h4 class="text-lg text-gray-800 font-bold mt-4">$14</h4>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+                <div
+                    class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                            data-original="#000000"></path>
+                    </svg>
+                </div>
+
+                <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src="https://readymadeui.com/images/product15.webp" alt="Product 3"
+                        class="h-full w-full object-contain" />
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-extrabold text-gray-800">Pumps</h3>
+                    <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h4 class="text-lg text-gray-800 font-bold mt-4">$14</h4>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 cursor-pointer hover:-translate-y-2 transition-all relative">
+                <div
+                    class="bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer absolute top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" class="fill-gray-800 inline-block"
+                        viewBox="0 0 64 64">
+                        <path
+                            d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z"
+                            data-original="#000000"></path>
+                    </svg>
+                </div>
+
+                <div class="w-5/6 h-[210px] overflow-hidden mx-auto aspect-w-16 aspect-h-8 md:mb-2 mb-4">
+                    <img src="https://readymadeui.com/images/product10.webp" alt="Product 3"
+                        class="h-full w-full object-contain" />
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-extrabold text-gray-800">Blaze Burst</h3>
+                    <p class="text-gray-600 text-sm mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h4 class="text-lg text-gray-800 font-bold mt-4">$14</h4>
+                </div>
+            </div>
         </div>
-    </div> <!-- container .//  -->
-</section>
-<!-- ========================= SECTION CONTENT END// ========================= -->
+    </div>
+</div>
 
 {% endblock %}
