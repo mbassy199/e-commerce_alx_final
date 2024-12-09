@@ -29,10 +29,6 @@ def add_cart(request, product_id):
     return redirect('store') 
 
 
-
-
-
-
 def store(request, category_slug=None):
     categories = None
     products = None
@@ -44,7 +40,7 @@ def store(request, category_slug=None):
         products = Product.objects.filter(is_available=True).order_by('id')
     product_count = products.count()
     
-    paginator = Paginator(products, 3)  
+    paginator = Paginator(products, 12)  
     page_number = request.GET.get('page')
     try:
         paged_products = paginator.page(page_number)

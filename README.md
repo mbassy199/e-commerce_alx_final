@@ -123,5 +123,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Compile tailwind.css 
 ```bash
- npx tailwindcss -i ./static/css/index.css -o ./static/css/output.css --watch
+npx tailwindcss -i ./static/css/index.css -o ./static/css/output.css --watch
+ 
 `
