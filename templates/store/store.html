@@ -2,18 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="bg-gray-100 py-20 px-0 sm:px-10 w-full">
-    <div class="p-4 mx-auto w-full lg:max-w-7xl sm:max-w-full space-y-10">
+<div class="relative bg-gray-100 py-20 px-0 sm:px-10 w-full">
+    <div class="relative p-4 mx-auto w-full lg:max-w-7xl sm:max-w-full space-y-10">
         <div
-            class="fixed top-[4.5rem] z-20 flex justify-between items-center w-full bg-white px-4 py-2 rounded-md shadow-sm">
-            <h2 class="text-xl font-semibold text-gray-800">Store</h2>
-            <form class="max-w-7xl mx-auto">
+            class="sticky top-[4.5rem] z-20 flex justify-center items-center w-full bg-white px-4 py-2 rounded-md shadow-sm">
+            <h2 class="text-xl font-semibold text-gray-800 mr-auto hidden lg:block">Store</h2>
+            <form action="{% url 'search' %}" class="search lg:max-w-7xl sm:max-w-full" method="GET">
                 <div class="flex">
                     <label for="search-dropdown"
                         class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
                     <button id="dropdown-button" data-dropdown-toggle="dropdown"
                         class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
-                        type="button">All categories
+                        type="button">All Categories
                         <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 10 6">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -23,6 +23,9 @@
                     <div id="dropdown"
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                            <li>
+                                <a class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" href="{% url 'store' %}">All Categories</a>
+                            </li>
                             {% for category in links %}
                             <li>
                                 <a href="{{ category.get_url }}"
@@ -34,7 +37,7 @@
                         </ul>
                     </div>
                     <div class="relative w-full">
-                        <input type="search" id="search-dropdown"
+                        <input type="search" id="search-dropdown" name="keyword"
                             class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-white rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-orange-500 focus:border-orange-500"
                             placeholder="Search..." required />
                         <button type="submit"
@@ -49,7 +52,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-xl:gap-4 gap-6 mt-20">

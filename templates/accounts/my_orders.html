@@ -3,9 +3,56 @@
 
 <div>
     {% include 'includes/dashboard_sidebar.html' %}
-    <div class="relative top-20 h-screen p-4 sm:ml-64">
+    <div class="relative top-20 h-screen p-4 sm:ml-64 space-y-10">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg">
             <h6 class="text-gray-500">My Orders</h6>
+        </div>
+
+        <div class="max-w-[720px] mx-auto">
+            <div class="w-full flex justify-between items-center mb-3 mt-12 pl-3">
+                <div>
+                    <h3 class="text-lg font-semibold text-slate-800">My Orders</h3>
+                    <p class="text-slate-500">Review your selected items.</p>
+                </div>
+            </div>
+
+            <div
+                class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border">
+                <table class="w-full text-left table-auto min-w-max">
+                    <thead>
+                        <tr class="border-b border-slate-300 bg-slate-50">
+                            <th class="p-4 text-sm font-normal leading-none text-slate-500">Order #</th>
+                            <th class="p-4 text-sm font-normal leading-none text-slate-500">Billing Name</th>
+                            <th class="p-4 text-sm font-normal leading-none text-slate-500">Phone</th>
+                            <th class="p-4 text-sm font-normal leading-none text-slate-500">Date</th>
+                            <th class="p-4 text-sm font-normal leading-none text-slate-500">Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 border-b border-slate-200 py-5">
+                                <a href="{% url 'order_detail' order.order_number %}"
+                                    class="block font-semibold text-sm text-slate-800">{{order.order_number}}
+                                </a>
+                            </td>
+                            <td class="p-4 border-b border-slate-200 py-5">
+                                <p class="block font-semibold text-sm text-slate-800">{{order.full_name}}</p>
+                            </td>
+                            <td class="p-4 border-b border-slate-200 py-5">
+                                <p class="text-sm text-slate-500">{{order.phone}}</p>
+                            </td>
+                            <td class="p-4 border-b border-slate-200 py-5">
+                                <p class="text-sm text-slate-500">{{order.created_at}}</p>
+                            </td>
+                            <td class="p-4 border-b border-slate-200 py-5">
+                                <p class="text-sm text-slate-500">GHC {{order.order_total}}</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
