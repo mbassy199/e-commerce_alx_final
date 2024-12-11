@@ -100,3 +100,7 @@ html.lenis body {
 #carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
   color: #000;
 }
+
+.bg-item-image {
+  background-image: url("{% static 'images/items/a.png' %}");
+}
