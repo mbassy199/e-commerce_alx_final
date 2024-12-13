@@ -7,7 +7,6 @@ django-appconf==1.0.6
 django-compressor==4.5.1
 idna==3.10
 Pillow==8.4.0
-psycopg-binary==3.2.3
 psycopg2-binary==2.9.10
 python-decouple==3.8
 pytz==2024.2
