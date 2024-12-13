@@ -29,7 +29,8 @@ DEBUG = (bool(int(os.environ.get("DEBUG", 1))))
 LOCALHOST1 = os.environ.get('LOCALHOST1')
 LOCALHOST2 = os.environ.get('LOCALHOST2')
 
-ALLOWED_HOSTS = [LOCALHOST1, LOCALHOST2]  # Add your domain here for production
+MAIN_HOST = os.environ.get('MAIN_HOST')
+ALLOWED_HOSTS = [LOCALHOST1, LOCALHOST2]
 
 COMPRESS_ROOT = BASE_DIR / 'static'
 
