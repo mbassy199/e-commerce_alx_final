@@ -8,6 +8,10 @@
                 "maxLambdaSize": "15mb", 
                 "runtime": "python3.10"
             }
+        },
+        {
+            "src": "package.json",
+            "use": "@vercel/node"
         }
     ],
     "routes": [
@@ -18,11 +22,17 @@
         {
             "src": "/(.*)",
             "dest": "asy/wsgi.py"
+        },
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
         }
+        
     ],
     "env": {
         "PYTHONUNBUFFERED": "1",
         "DJANGO_SETTINGS_MODULE": "asy.settings"
     }
+
 
 }
