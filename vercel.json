@@ -29,6 +29,7 @@
         }
         
     ],
+    "buildCommand": "npm install && python manage.py collectstatic",
     "env": {
         "PYTHONUNBUFFERED": "1",
         "DJANGO_SETTINGS_MODULE": "asy.settings"
