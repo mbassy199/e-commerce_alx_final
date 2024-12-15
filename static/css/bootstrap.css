@@ -23,7 +23,7 @@ Bootstrap with custom variables
   --gray: #545454;
   --gray-dark: #343a40;
   --gray-light: #969696;
-  --primary: #ebc931;
+  --primary: #3167eb;
   --secondary: #545454;
   --success: #00b517;
   --info: #17a2b8;
@@ -2682,28 +2682,28 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #ebba31;
-  border-color: #ebba31;
+  color: #3167eb;
+  border-color: #3167eb;
 }
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #ebba31;
-  border-color: #ebba31;
+  background-color: #3167eb;
+  border-color: #3167eb;
 }
 .btn-outline-primary:focus, .btn-outline-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(49, 103, 235, 0.5);
 }
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #ebba31;
+  color: #3167eb;
   background-color: transparent;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #ebba31;
-  border-color: #ebba31;
+  background-color: #3167eb;
+  border-color: #3167eb;
 }
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(194, 160, 8, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(49, 103, 235, 0.5);
 }
 
 .btn-outline-secondary {
