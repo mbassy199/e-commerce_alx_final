@@ -1,37 +1,39 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": "asy/wsgi.py",
-        "use": "@vercel/python",
-        "config": {
-          "maxLambdaSize": "15mb", 
-          "runtime": "python3.10"
+        {
+            "src": "asy/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb", 
+                "runtime": "python3.10"
+            }
+        },
+        {
+            "src": "package.json",
+            "use": "@vercel/node"
         }
-      },
-      {
-        "src": "package.json",
-        "use": "@vercel/node"
-      }
     ],
     "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "asy/wsgi.py"
-      },
-      {
-        "src": "/static/(.*)",
-        "dest": "/public/static/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "asy/wsgi.py"
-      }
+        {
+            "src": "/api/(.*)",
+            "dest": "asy/wsgi.py"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "asy/wsgi.py"
+        },
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        }
+        
     ],
-    "buildCommand": "npm install && python manage.py collectstatic --noinput && cp -r staticfiles/* public/",
+    "buildCommand": "npm install && python manage.py collectstatic",
     "env": {
-      "PYTHONUNBUFFERED": "1",
-      "DJANGO_SETTINGS_MODULE": "asy.settings"
+        "PYTHONUNBUFFERED": "1",
+        "DJANGO_SETTINGS_MODULE": "asy.settings"
     }
-  }
-  
+
+
+}
