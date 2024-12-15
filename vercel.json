@@ -22,18 +22,11 @@
         {
             "src": "/(.*)",
             "dest": "asy/wsgi.py"
-        },
-        {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
         }
-        
     ],
-    "buildCommand": "npm install && python manage.py collectstatic",
+    "buildCommand": "npm install && python manage.py collectstatic && cp -r asy/static/* public/",
     "env": {
         "PYTHONUNBUFFERED": "1",
         "DJANGO_SETTINGS_MODULE": "asy.settings"
     }
-
-
 }
